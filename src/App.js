@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import  "./App.css";
+import FunctComponent from "./Components/FunctComponent";
+import ClassesComponent from "./Components/ClassesComponent";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+const App = () =>{
+  const [show, setshow] = useState(false);
+  const handleclick =()=>{
+   setshow(!show)
+  }
+  const [show2, setshow2] = useState(false);
+  const handleclick2 = ()=>{
+    setshow2(!show2)
+  }
+
+
+    return (
+      <div className="container">
+        <h1 className='title'>Styling using Functional and Class Component</h1>
+        <div className="btns">
+        <button onClick={handleclick} className="btn">To See Functional Component</button>
+        <button onClick={handleclick2} className="btn">To See Class Component</button>
+        </div>
+        <div className="boxes">
+        {show ? <FunctComponent/> : ""}
+        {show2 ? <ClassesComponent/> : ""}
+        </div>
+
+       
+      </div>
+    )
 }
 
 export default App;
